@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "KTNGN-SAMPLE",
+  "description": "Sample browser extension",
+  "version": "0.0.0",
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "options_page": "options.html",
+
+  "background": {
+    "page": "background.html"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/icon-48.png",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://localhost/*",
+        "*://127.0.0.1/*"
+      ],
+      "js": [
+        "content.bundle.js"
+      ]
+    }
+  ],
+
+  "permissions": [
+    "contextMenus",
+    "cookies",
+    "storage",
+    "idle",
+    "tabs",
+    "bookmarks",
+    "*://*/*"
+  ],
+
+  "externally_connectable": {
+    "matches": [
+      "*://localhost/*",
+      "*://127.0.0.1/*"
+    ]
+  }
+}
